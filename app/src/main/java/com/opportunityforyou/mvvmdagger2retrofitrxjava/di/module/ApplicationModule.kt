@@ -26,15 +26,14 @@ class ApplicationModule (private val application: RxApplication) {
     @Provides
     fun provideApiKey() : String = "API_KEY"
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideDatabaseService() : DatabaseService = Room.databaseBuilder(
             application,
             DatabaseService::class.java,
-            "dbproject"
-    ).build()
+            "dbproject")
+            .build()
 
-    @Singleton
     @Provides
     fun provideCompositeDisposable() : CompositeDisposable = CompositeDisposable()
 }
