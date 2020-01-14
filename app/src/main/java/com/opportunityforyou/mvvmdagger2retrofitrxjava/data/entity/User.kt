@@ -1,8 +1,6 @@
 package com.opportunityforyou.mvvmdagger2retrofitrxjava.data.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity(tableName =  "users")
 data class User(
@@ -11,5 +9,15 @@ data class User(
         var id : Long = 0,
 
         @ColumnInfo(name = "name")
-        var name: String
-)
+        var name: String,
+
+        @Embedded
+        var address: Address,
+
+        @Ignore
+        var selected : Boolean = false
+) {
+
+
+    constructor() : this(0, "" ,Address("", ""), false)
+}

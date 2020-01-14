@@ -3,6 +3,7 @@ package com.opportunityforyou.mvvmdagger2retrofitrxjava.ui.main
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.opportunityforyou.mvvmdagger2retrofitrxjava.data.entity.Address
 import com.opportunityforyou.mvvmdagger2retrofitrxjava.data.entity.User
 import com.opportunityforyou.mvvmdagger2retrofitrxjava.data.local.DatabaseService
 import com.opportunityforyou.mvvmdagger2retrofitrxjava.di.scopes.ActivityScope
@@ -31,11 +32,11 @@ class MainViewModel @Inject constructor(
                         .flatMap {
                             if(it == 0)
                                 database.userDao().insertMany(
-                                        User(name = "Ayush"),
-                                        User(name = "Ayush Again"),
-                                        User(name = "Ayush Again"),
-                                        User(name = "Ayush Again"),
-                                        User(name = "Ayush Again")
+                                        User(name = "Ayush", address = Address("Raipur","India")),
+                                        User(name = "Ayush Again", address = Address("Bhilai","India")),
+                                        User(name = "Ayush Again", address = Address("London","United Kingdom")),
+                                        User(name = "Ayush Again", address = Address("Moscow","Russia")),
+                                        User(name = "Ayush Again", address = Address("New York","USA"))
 
                                 )
                             else Single.just(0)
